@@ -1,0 +1,85 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+    <div class="profile_sidenav">
+        <a href="{{ url_for('categorySearch') }}">Search Categories</a>
+        <a href="{{ url_for('locationSearch') }}">Search on Map</a>
+        <div class="account_menu">
+            Your account details
+            <br><br><br>
+            <div class="account_links">
+                <a href="{{ url_for('passwordChange')}}">Change Password</a>
+                <a href="{{ url_for('passwordChange')}}">Payment Details</a>
+                <a href="{{ url_for('address')}}">Edit Current Address</a>
+                <a href="{{ url_for('logout') }}">Logout</a>
+            </div>
+            <br><br><br>
+        </div>
+    </div>
+
+    <div class="profile_main">
+
+        <div class="profile_box">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                  {% for category, message in messages %}
+                      <div class="alert alert-{{ category }}" role="alert">
+                        {{ message }}
+                      </div>
+                  {% endfor %}
+              {% endif %}
+            {% endwith %}
+            <img class="profile_logo" src="/static/images/logo.png">
+            <h3>Welcome {{ user_data[4].upper() }} {{ user_data[5].upper() }}</h3>
+            <div class="profile_image">
+                {% if profile_photo %}
+                    <img src="data:image/png;base64,{{ profile_photo }}"/>
+                    {% if not user_flag  %}
+                        <br><br>
+                        <a href="/booking?other_user_id={{ other_user_id }}" class="pink_link">Book</a>
+                    {% endif %}
+                {% else %}
+                    <img src="/static/images/profileImage_placeholder.png">
+                    {% if not user_flag  %}
+                        <br><br>
+                        <a href="#book" class="pink_link">Book</a>
+                    {% endif %}
+                {% endif %}
+                <form enctype="multipart/form-data" action="{{ url_for('profile_form') }}" method="post">
+                    {% if user_flag %}
+                        <input type="file" name="file" style="border: none; color: white;">
+                    {% endif %}
+            </div>
+            <div class="bio">
+                {% if user_data[9] %}
+                    <p>{{ user_data[9] }}</p>
+                    <textarea name="bio" hidden>{{ user_data[9] }}</textarea>
+                {% else %}
+                    <h4>No Bio was added</h4>
+                        {% if user_flag %}
+                            <textarea name="bio" style="width: 80%; height: 300px; border: none; background: pink;"></textarea><br>
+                        {% endif %}
+                {% endif %}
+
+            </div>
+                    {% if user_flag %}
+                    <input type="submit" value="Update" class="pink_button">
+                    {% endif %}
+                </form>
+            <div class="image_gallery">
+                <img src=""><img src=""><img src="">
+                <img src=""><img src=""><img src="">
+            </div>
+            <div class="reviews">
+                <h4>Ratings and reviews</h4>
+                {% if ratings %}
+                    {% for rating in ratings %}
+                        rating
+                    {% endfor %}
+                {% else %}
+                    <h6>No Rating and reviews were added at this time</h6>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock content %}

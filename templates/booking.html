@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <script type="text/javascript">
+        let autocomplete;
+        function initAutocomplete(){
+            autocomplete = new google.maps.places.Autocomplete(
+                document.getElementById('address'),{
+                    types: [],
+                    componentRestrictions: {'country': ['UK']},
+                    fields: ['place_id', 'geometry', 'name', '']
+                });
+        }
+    </script>
+    {% include "header.html" %}
+    <h1 style="background: #f1f1f1; margin: 0; padding: 15px;">Book services from "{{ other_user[1] }} {{ other_user[2] }}"</h1>
+    <div class="form_body full-height" style="color: black">
+        <form method="post", action="{{ url_for('booking') }}">
+            <input type="text" value="{{ other_user[0] }}" name="other_user_id" hidden>
+            <h5>Choose a date and time for your booking</h5>
+            <input type="datetime-local" id="datetime" name="datetime" required><br>
+            <h5>Select the service you require</h5>
+            <select name="category" class="custom-select" style="width: 44%;" required>
+                {% for category in categories %}
+                    <option style="" value= "{{ category[0] }}"> {{ category[1] }} - {{ category[2] }}</option>"
+                {% endfor %}
+            </select>
+            <h5>Type in your address</h5>
+            <input type="text" placeholder="Enter your address" name="address" id="address" required><br><br>
+            <input class="pink_button" type="submit" value="Pay">
+        </form>
+    </div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7ClnuMIcTBKFDMY5zHn1yTmCPa9Yif5Q&libraries=places&callback=initAutocomplete" defer></script>
+
+{% endblock content %}

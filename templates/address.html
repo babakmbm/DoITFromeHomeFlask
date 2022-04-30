@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+{% block content %}
+    {% if lat and lng %}
+    <head>
+        <script type="text/javascript">
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: {{lat}}, lng: {{lng}}},
+                zoom: 16,
+
+              });
+            const marker = new google.maps.Marker({
+                position: {lat: {{lat}}, lng: {{lng}}}
+            })
+
+            marker.setMap(map);
+            initAutocomplete();
+        }
+
+        let autocomplete;
+        function initAutocomplete(){
+            autocomplete = new google.maps.places.Autocomplete(
+                document.getElementById('new_address'),{
+                    types: [],
+                    componentRestrictions: {'country': ['UK']},
+                    fields: ['place_id', 'geometry', 'name', '']
+                });
+        }
+        </script>
+    </head>
+    {% endif %}
+    {% include "header.html" %}
+    {% if address %}
+        <div class="address_line">{{ address }}</div>
+    {% else %}
+        <div class="address_line"> No address to display</div>
+    {% endif %}
+    <div class="mapContainer" >
+        <div id="map" style="width:100%; height:500px;"></div>
+    </div>
+    <div class="form_body full-height">
+        <form method="post", action="{{ url_for('address') }}">
+            <input type="text" id="new_address" name="new_address" placeholder="Enter your new address" > <br><br><br>
+            <input type="submit" class="pink_button" value="Change">
+        </form>
+    </div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7ClnuMIcTBKFDMY5zHn1yTmCPa9Yif5Q&libraries=places&callback=initMap" defer></script>
+{% endblock content %}

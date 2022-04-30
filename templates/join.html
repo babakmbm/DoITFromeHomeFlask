@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+{% block content %}
+    {% include 'header.html' %}
+    <script type="text/javascript">
+        let autocomplete;
+        function initAutocomplete(){
+            autocomplete = new google.maps.places.Autocomplete(
+                document.getElementById('address'),{
+                    types: [],
+                    componentRestrictions: {'country': ['UK']},
+                    fields: ['place_id', 'geometry', 'name', '']
+                });
+        }
+        </script>
+
+    <div class="form_body">
+        <form method="post", action="{{ url_for('join') }}">
+            <input type="text" placeholder="Enter Email Address" name="email" title="email" required><br><br>
+            <input type="text" id="username" name="username" placeholder="Create User Name" required><br><br>
+            <input type="text" id="firstname" name="firstname" placeholder="Enter your first name" required><br><br>
+            <input type="text" id="lastname" name="lastname" placeholder="Enter your Last Name" required><br><br>
+            <input type="password" id="password" name="password" placeholder="Create Password" required><br><br>
+            <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" required><br><br>
+            <input type="text" placeholder="Enter your address" name="address" id="address" required>
+        <br>
+        <br>
+        <br>
+        <input class="pink_button" type="submit" value="Join">
+    </form>
+    </div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7ClnuMIcTBKFDMY5zHn1yTmCPa9Yif5Q&libraries=places&callback=initAutocomplete" defer></script>
+{% endblock content %}

@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+
+    {% if message %}
+        <h3 class="message">{{ message }}</h3>
+    {% endif %}
+    {% include "header.html" %}
+
+    <div class="form_body">
+        <form method="post", action="{{ url_for('categorySearch') }}">
+            <input type="text" id="search" name="search" placeholder="Enter Address" style="width: 45%"> <br><br>
+            <select name="category" class="custom-select">
+                {% for category in categories %}
+                    <option style="" value= "{{ category[0] }}"> {{ category[1] }} - {{ category[2] }}</option>"
+                {% endfor %}
+            </select>
+            <br><br><br>
+            <input type="submit" class="pink_button" value="GO !" style="font-weight: bold">
+        </form>
+    </div>
+
+    <div class="results">
+        <hr>
+        {% if results %}
+            <ul>
+                {% for result in results %}
+                    <li class="clearfix">
+                        <div class="pic_name">
+                            {% if result[6] %}
+                                <img src="data:image/png;base64,{{ result[6] }}"/>
+                            {% else %}
+                                <img src="/static/images/profileImage_placeholder.png">
+                            {% endif %}
+                            <p>{{ result[0] }} {{ result[1][0] }} </p>
+                            <a class="pink_link" href="/profile?user_id={{ result[7] }}">Go to profile</a>
+                        </div>
+
+                        <div class="image_grid">
+                            <img src="/static/images/profileImage_placeholder.png">
+                            <img src="/static/images/profileImage_placeholder.png">
+                            <img src="/static/images/profileImage_placeholder.png">
+                            <br>
+                            <img src="/static/images/profileImage_placeholder.png">
+                            <img src="/static/images/profileImage_placeholder.png">
+                            <img src="/static/images/profileImage_placeholder.png">
+                        </div>
+                        <br>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <h5 style="color: brown;">We do not have service providers in that area with that category!</h5>
+        {% endif %}
+    </div>
+
+{% endblock content %}

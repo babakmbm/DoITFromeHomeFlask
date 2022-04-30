@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+{% block content %}
+    {% include "header.html" %}
+    <div class="form_body full-height">
+        <form method="post", action="{{ url_for('login') }}">
+          <input type="text" id="email" name="email" placeholder="Your Email" value=""><br>
+          <input type="password" id="password" name="password" placeholder="password" ><br><br>
+          <input class="pink_button" type="submit" value="Login">
+        </form>
+    </div>
+
+
+{% endblock content %}

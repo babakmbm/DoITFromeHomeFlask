@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;1,200;1,900&display=swap');
+html, body {
+  height: 100%;
+}
+
+.full-height {
+  height: 100%;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li .button {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  background: #948E8E;
+  border-radius: 5px;
+  padding:15px 5px;
+  margin: 5px auto;
+  width: 30%;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+.container{
+  width: 80%;
+  margin:0 auto;
+  text-align: center;
+  font-family: 'Archivo', sans-serif;
+}
+.container .topic_container{
+  color: #555;
+  text-decoration: none;
+}
+
+.header{
+  background: #8E8888;
+  width: 100%;
+  color: white;
+  padding: 10px 0px;
+}
+
+.message{
+  color: maroon;
+  font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
+}
+
+.form_body{
+
+  padding: 40px;
+  background: #E5E5E5;
+  color: white;
+}
+
+
+
+.form_body form input, .form_body form input:focus{
+  background-color: #C4C4C4;
+  width: 40%;
+  padding: 20px;
+  border: none;
+  margin-top: 10px;
+  color: white;
+}
+
+
+.pink_button {
+  color: white !important;
+  width: 100px !important;
+  height: 100px !important;
+  border: none !important;
+  border-radius: 50% !important;
+  background: #FFA8C5 !important;
+  margin-top:5px !important;
+  cursor: pointer;
+}
+
+.about_body{
+  padding: 40px;
+  background: #938D8D;
+  color: white;
+}
+
+.circles{
+  width: 100px;
+  height: 100px;
+  background-color: #FFA8C5;
+  border-radius: 50%;
+  vertical-align: center;
+  border: none;
+  margin: 15px;
+}
+
+.profile_sidenav{
+  background: #948E8E;
+  height: 100%;
+  width: 25%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+  font-weight: bold;
+}
+
+.profile_sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  /*font-size: 25px;*/
+  color: #818181;
+  display: block;
+  color: black;
+  background-color: #C4C4C4;
+  margin-top: 5px;
+
+}
+
+.profile_sidenav a:hover {
+  color: #f1f1f1;
+}
+
+@media screen and (max-height: 450px) {
+  .profile_sidenav {padding-top: 15px;}
+  .profile_sidenav a {font-size: 18px;}
+}
+
+.profile_sidenav .account_menu{
+  position: absolute;
+  background-color: #C4C4C4;
+  width: 100%;
+  color: #111111;
+  bottom:3%;
+}
+
+.profile_sidenav .account_menu .account_links a{
+  background-color: transparent !important;
+  text-align: left;
+  font-weight: normal;
+}
+
+
+.profile_main{
+  margin-left: 25%; /* Same as the width of the sidenav */
+  padding: 0px 10px;
+}
+
+.profile_main .profile_box{
+  background-color: #938D8D;
+  text-align: center;
+  padding: 20px;
+}
+
+.profile_main .profile_image img{
+  width: 30%;
+  border-radius: 20px;
+  margin: 0 auto;
+}
+
+.profile_image form{
+  margin: 50px auto;
+}
+
+.profile_main .bio{
+  background: #DCE6F2;
+  border-radius: 8px;
+  width: 80%;
+  margin: 20px auto;
+  padding: 5px 5px;
+  font-weight: normal;
+}
+
+#map {
+  height: 400px;
+  /* The height is 400 pixels */
+  width: 100%;
+  /* The width is the width of the web page */
+}
+
+.address_line{
+  background-color: #555555;
+  font-family: 'Archivo', sans-serif;
+  color: white;
+  font-weight: 500;
+  padding: 10px;
+}
+
+input[type=file]::file-selector-button, .up_button{
+  border: None;
+  width: 50%;
+  padding: .2em .4em;
+  border-radius: .2em;
+  background-color: #FFA8C5;
+  transition: 1s;
+}
+
+.results{
+  padding: 40px;
+  background: #E5E5E5;
+  color: black;
+}
+
+.clearfix:after {
+   content: ".";
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
+}
+
+.results li{
+  width: 90%;
+  background-color: azure;
+  margin:0 auto;
+  margin-bottom: 15px;
+  padding: 20px;
+  clear: both;
+  border-radius: 20px;
+}
+
+.pic_name{
+  width: 20%;
+  float: left;
+}
+
+.results .pic_name img{
+  width: 100%;
+}
+
+.results .image_grid{
+  width: 55%;
+  float: right;
+}
+
+.results .image_grid img{
+  width: 25%;
+}
+
+.pink_link{
+  background-color: #FFA8C5;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 10px;
+  vertical-align:middle;
+  width: 100%;
+}
+
+.custom-select{
+  width: 30%;
+  background-color: #C4C4C4;
+  border: none;
+  height: 50px;
+  color: white;
+  padding: 10px;
+}

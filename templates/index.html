@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+
+    {% if message %}
+        <h3 class="message">{{ message }}</h3>
+    {% endif %}
+    {% include "header.html" %}
+    <div class="page_body">
+        <p>A digital platform created to bring beauty salon treatments to your home </p>
+        <ul style="background: transparent">
+            <li><a href="/join" class="button">Join Now</a></li>
+            <li><a href="/login" class="button">Log In</a></li>
+            <li><a href="{{ url_for('about') }}" class="button">About us</a></li>
+        </ul>
+    </div>
+
+{% endblock content %}

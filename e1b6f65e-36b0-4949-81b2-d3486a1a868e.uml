@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>e1b6f65e-36b0-4949-81b2-d3486a1a868e</OriginalElement>
+  <nodes>
+    <node x="-193.0" y="330.0">e1b6f65e-36b0-4949-81b2-d3486a1a868e.TABLE:main.photos</node>
+    <node x="276.6875" y="406.5">e1b6f65e-36b0-4949-81b2-d3486a1a868e.TABLE:main.category</node>
+    <node x="77.375" y="400.0">e1b6f65e-36b0-4949-81b2-d3486a1a868e.TABLE:main.booking</node>
+    <node x="69.375" y="0.0">e1b6f65e-36b0-4949-81b2-d3486a1a868e.TABLE:main.user</node>
+    <node x="696.0" y="20.0">e1b6f65e-36b0-4949-81b2-d3486a1a868e.TABLE:main.sqlite_master</node>
+    <node x="696.0" y="183.0">e1b6f65e-36b0-4949-81b2-d3486a1a868e.TABLE:main.sqlite_sequence</node>
+    <node x="464.0" y="429.5">e1b6f65e-36b0-4949-81b2-d3486a1a868e.TABLE:main.category_user</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="e1b6f65e-36b0-4949-81b2-d3486a1a868e.TABLE:main.booking" target="e1b6f65e-36b0-4949-81b2-d3486a1a868e.TABLE:main.user" relationship="REFERENCES">
+      <point x="0.625" y="-74.0" />
+      <point x="145.5" y="379.5" />
+      <point x="144.875" y="379.5" />
+      <point x="144.875" y="253.0" />
+      <point x="-37.75" y="126.5" />
+    </edge>
+    <edge source="e1b6f65e-36b0-4949-81b2-d3486a1a868e.TABLE:main.booking" target="e1b6f65e-36b0-4949-81b2-d3486a1a868e.TABLE:main.category" relationship="REFERENCES">
+      <point x="33.75" y="-71.5" />
+      <point x="178.625" y="307.0" />
+      <point x="310.4375" y="307.0" />
+      <point x="-33.75" y="49.5" />
+    </edge>
+    <edge source="e1b6f65e-36b0-4949-81b2-d3486a1a868e.TABLE:main.category_user" target="e1b6f65e-36b0-4949-81b2-d3486a1a868e.TABLE:main.user" relationship="REFERENCES">
+      <point x="-33.75" y="-38.0" />
+      <point x="497.75" y="231.75" />
+      <point x="182.625" y="231.75" />
+      <point x="37.75" y="126.5" />
+    </edge>
+    <edge source="e1b6f65e-36b0-4949-81b2-d3486a1a868e.TABLE:main.category_user" target="e1b6f65e-36b0-4949-81b2-d3486a1a868e.TABLE:main.category" relationship="REFERENCES">
+      <point x="33.75" y="-38.0" />
+      <point x="565.25" y="355.5" />
+      <point x="377.9375" y="355.5" />
+      <point x="33.75" y="49.5" />
+    </edge>
+    <edge source="e1b6f65e-36b0-4949-81b2-d3486a1a868e.TABLE:main.photos" target="e1b6f65e-36b0-4949-81b2-d3486a1a868e.TABLE:main.user" relationship="REFERENCES">
+      <point x="0.0" y="-49.5" />
+      <point x="-133.5" y="133.75" />
+      <point x="107.125" y="133.75" />
+      <point x="-37.75" y="126.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="1.0" showDependencies="false" x="324.5" y="283.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Columns</Category>
+    <Category>Comments</Category>
+    <Category>Key columns</Category>
+    <Category>Virtual foreign keys</Category>
+  </Categories>
+</Diagram>
+

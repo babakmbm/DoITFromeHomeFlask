@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    {% if message %}
+        <h3 class="message">{{ message }}</h3>
+    {% endif %}
+    <div class="about_body full-height">
+        <p>Tight schedule and in need of a spa appointment?</p>
+        <p>- We got you!</p>
+    <p>Book the esthetician of your choice to give you a makeover
+    with only 2 requirements- search the clients
+        who are nearest to your home, and pay the travel fee.</p>
+
+        <p>What services our platform provides</p>
+        <button class="circles">Nails</button> <br>
+
+        <button class="circles">Makeup</button>
+        <button class="circles">Hair</button>
+        <button class="circles">Wax</button><br>
+        <button class="circles">Massages</button><br><br><br>
+        <ul>
+            <li><a class="button" style="background: #555555" href="{{ url_for('index') }}">Back to home page</a></li>
+        </ul>
+
+    </div>
+
+{% endblock content %}
