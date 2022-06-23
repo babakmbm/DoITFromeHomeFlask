@@ -10,10 +10,8 @@ import stripe
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'RGT'
-app.config['STRIPE_PUBLIC_KEY'] = 'pk_test_51KtvBkFMuBunBTGCGgxCSIbqLc5iMuzGuvictFDPdCBKah9M3lwxtWRXfMijDRrLQWJLlctz4NSe64c5xu8xnCRX000h8f1Hip'
-app.config['STRIPE_SECRET_KEY'] = 'sk_test_51KtvBkFMuBunBTGC64JDNZfP0I6Bk82OFWINHyaeE53ZqCozdQC666EdYib4KToLRFQSXCBbpotEe6zfSTiEuRWF00PTJGYa4X'
-
-stripe.api_key = 'sk_test_51KtvBkFMuBunBTGC64JDNZfP0I6Bk82OFWINHyaeE53ZqCozdQC666EdYib4KToLRFQSXCBbpotEe6zfSTiEuRWF00PTJGYa4X'
+app.config['STRIPE_PUBLIC_KEY'] = '---'
+app.config['STRIPE_SECRET_KEY'] = '---'
 
 @app.before_request
 def before_request():
@@ -231,7 +229,7 @@ def profile_form():
 
     return redirect(url_for('profile_form'))
 def get_address(add):
-    API_KEY = 'AIzaSyB7ClnuMIcTBKFDMY5zHn1yTmCPa9Yif5Q'
+    API_KEY = '----'
     map_client = googlemaps.Client(API_KEY)
     response = map_client.geocode(add)
     formatted_address = response[0]['formatted_address']
@@ -410,9 +408,8 @@ def paymentSuccess():
     booking_datetime = request.args.get('date')
     category_id = request.args.get('catID')
     other_user_id = request.args.get('other_user_id')
-    print(client_address)
     return render_template('paymentSuccess.html')
 
 if __name__ == '__main__':
     global client_address
-    app.run(debug=True)
+    app.run(host="localhost", port=8000, debug=True)
